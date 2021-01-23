@@ -6,7 +6,7 @@ use Vreyz\Admin\Extension;
 
 class MultiLanguage extends Extension
 {
-    public $name = 'multiLanguage-laravel';
+    public $name = 'multilanguage-laravel';
 
     public $views = __DIR__.'/../resources/views';
 
