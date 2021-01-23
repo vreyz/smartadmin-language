@@ -1,0 +1,33 @@
+{
+    "name": "vreyz/smartadmin-language",
+    "description": "MultiLangage Menu for vreyz/smartadmin-laravel",
+    "type": "library",
+    "keywords": ["laravel-admin", "extension","smartadmin"],
+    "homepage": "https://github.com/vreyz/smartadmin-language",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "vreyz",
+            "email": "unknown3924@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "vreyz/smartadmin-laravel": "dev-main"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vreyz\\MultiLanguage\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vreyz\\MultiLanguage\\SmartAdminServiceProvider"
+            ]
+        }
+    }
+}
