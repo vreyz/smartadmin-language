@@ -2,7 +2,7 @@
 
 namespace Vreyz\MultiLanguage;
 
-use Encore\Admin\Facades\Admin;
+use Vreyz\Admin\Facades\Admin;
 use Illuminate\Support\ServiceProvider;
 use Vreyz\MultiLanguage\Widgets\MultiLanguageMenu;
 

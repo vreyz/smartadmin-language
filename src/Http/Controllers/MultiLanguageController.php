@@ -2,7 +2,7 @@
 
 namespace Vreyz\MultiLanguage\Http\Controllers;
 
-//use Encore\Admin\Layout\Content;
+//use Vreyz\Admin\Layout\Content;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Request;

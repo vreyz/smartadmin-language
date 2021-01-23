@@ -6,13 +6,13 @@ Laravel with SmartAdmin fontend
 First, install laravel, and make sure that the database connection settings are correct.
 
 ```
-composer require encore/laravel-admin:1.*
+composer require vreyz/laravel-admin:1.*
 ```
 
 ### Then run these commands to publish assets and config：
 
 ```
-php artisan vendor:publish --provider="Encore\Admin\AdminServiceProvider"
+php artisan vendor:publish --provider="Vreyz\Admin\AdminServiceProvider"
 ```
 
 After run command you can find config file in config/admin.php, in this file you can change the install directory,db connection or table names.

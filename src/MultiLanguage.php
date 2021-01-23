@@ -2,7 +2,7 @@
 
 namespace Vreyz\MultiLanguage;
 
-use Encore\Admin\Extension;
+use Vreyz\Admin\Extension;
 
 class MultiLanguage extends Extension
 {
