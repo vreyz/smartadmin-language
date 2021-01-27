@@ -1,12 +1,12 @@
-Laravel with SmartAdmin fontend
+Laravel with SmartAdmin frontend based on Encore/laravel-admin
 =======
 
-## Must Install Ecore Laravel Admin:
+## Must Install SmartAdmin Laravel Admin:
 
 First, install laravel, and make sure that the database connection settings are correct.
 
 ```
-composer require vreyz/laravel-admin:1.*
+composer require vreyz/smartadmin-laravel --dev
 ```
 
 ### Then run these commands to publish assets and config：
@@ -17,65 +17,44 @@ php artisan vendor:publish --provider="Vreyz\Admin\AdminServiceProvider"
 
 After run command you can find config file in config/admin.php, in this file you can change the install directory,db connection or table names.
 
+#### Change your inv matched with database username password and APP_URL (APP_URL are mandatory for local development).
+```
+APP_URL=http://localhost/[your_laravel_project_name]
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=[your_database]
+DB_USERNAME=[your_database_username]
+DB_PASSWORD=[your_database_password]
+```
+
+#### Disable default Laravel route in `router/web.php`
+```
+/*
+* Route::get('/', function () {
+*    return view('welcome');
+* });
+/*
+```
+
+#### Add disk config in `config/filesystems.php`
+```
+'disks' => [
+    //add code below
+        'admin' => [
+            'driver' => 'local',
+            'root' => public_path('uploads'),
+            'url' => env('APP_URL').'/public/uploads', //must be same with upload because use one logic to store data
+            'visibility' => 'public',
+        ],
+],
+```
+
 #### At last run following command to finish install.
 
 ```
 php artisan admin:install
 ```
 
-Open http://localhost/admin/ in browser,use username admin and password admin to login.
-
-
-
-## Then Install SmartAdmin forntend
-
-```
-composer require vreyz/smartadmin-laravel
-```
-
-## Config
-
-
-First, add extension config
-
-In `config/admin.php`
-
-```
-    'extensions' => [
-        'smartadmin-laravel' => [
-            'enable' => true,
-            // the key should be same as var locale in config/app.php
-            // the value is used to show
-            'languages' => [
-                'en' => 'English',
-                'zh-CN' => '简体中文',
-            ],
-            // default locale
-            'default' => 'zh-CN',
-            // if or not show multi-language login page, optional, default is true
-            'show-login-page' => true,
-            // if or not show multi-language navbar, optional, default is true
-            'show-navbar' => true,
-            // the cookie name for the multi-language var, optional, default is 'locale'
-            'cookie-name' => 'locale'
-        ],
-    ],
-```
-
-Then, add except route to auth
-
-In `config/admin.php`, add `locale` to `auth.excepts`
-
-```
-    'auth' => [
-        ...
-        // The URIs that should be excluded from authorization.
-        'excepts' => [
-            'auth/login',
-            'auth/logout',
-            // add this line !
-            'locale',
-        ],
-    ],
-
-```
+Open http://localhost/[your_laravel_project_name] in browser,use username admin and password admin to login.
