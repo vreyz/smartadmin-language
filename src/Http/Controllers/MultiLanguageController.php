@@ -31,6 +31,6 @@ class MultiLanguageController extends Controller
         if(Cookie::has($cookie_name)) {
             $current = Cookie::get($cookie_name);
         }
-        return view("smart-admin::login-".$login_page, compact('languages', 'current'));
+        return view("admin::login-".$login_page, compact('languages', 'current'));
     }
 }
