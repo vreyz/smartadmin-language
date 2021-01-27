@@ -2,13 +2,13 @@
 
 namespace Vreyz\MultiLanguage\Http\Controllers;
 
-//use Vreyz\Admin\Layout\Content;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Request;
+use Vreyz\Admin\Controllers\AuthController;
 use Vreyz\MultiLanguage\MultiLanguage;
 
-class MultiLanguageController extends Controller
+class MultiLanguageController extends AuthController
 {
 
     public function locale() {
@@ -23,7 +23,12 @@ class MultiLanguageController extends Controller
     }
 
     public function getLogin() {
-        $login_page = config('login-page');
+
+        if ($this->guard()->check()) {
+            return redirect($this->redirectPath());
+        }
+
+        $login_page = config('admin.themes.login-page');
         $languages = MultiLanguage::config("languages");
         $cookie_name = MultiLanguage::config('cookie-name', 'locale');
 
